@@ -55,7 +55,7 @@ jobs:
       run: dotnet test ./tests/Bemby.AccountModule.Domain.Tests/Bemby.AccountModule.Domain.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain.md;Title=${{env.run_title}}_Bemby.AccountModule.Domain;"
 
     - name: Test Bemby.AccountModule.Infrastructure
-      run: dotnet test ./tests/Bemby.AccountModule.Infrastructure.Tests/Bemby.AccountModule.Infrastructure.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain.md;Title=${{env.run_title}}_Bemby.AccountModule.Infrastructure;"
+      run: dotnet test ./tests/Bemby.AccountModule.Infrastructure.Tests/Bemby.AccountModule.Infrastructure.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Infrastructure.md;Title=${{env.run_title}}_Bemby.AccountModule.Infrastructure;"
     
     # upload report as build artifact
     - name: Upload Bemby.AccountModule.Api Test Report as a Build Artifact
@@ -65,14 +65,14 @@ jobs:
         name: 'Bemby.AccountModule.Api Test Run'
         path: "${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Api.md"
 
-    - name: Upload Bemby.AccountModule.Api Test Report as a Build Artifact
+    - name: Upload Bemby.AccountModule.Application Test Report as a Build Artifact
       uses: actions/upload-artifact@v2
       if: ${{always()}}
       with:
         name: 'Bemby.AccountModule.Application Test Run'
         path: "${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application.md"
 
-    - name: Upload Bemby.AccountModule.Api Test Report as a Build Artifact
+    - name: Upload Bemby.AccountModule.Application.Interfaces Test Report as a Build Artifact
       uses: actions/upload-artifact@v2
       if: ${{always()}}
       with:
@@ -86,7 +86,7 @@ jobs:
         name: 'Bemby.AccountModule.Domain Test Run'
         path: "${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain.md"
         
-    - name: Upload Bemby.AccountModule.Api Test Report as a Build Artifact
+    - name: Upload Bemby.AccountModule.Infrastructure Test Report as a Build Artifact
       uses: actions/upload-artifact@v2
       if: ${{always()}}
       with:
