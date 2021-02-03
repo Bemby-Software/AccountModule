@@ -40,8 +40,8 @@ jobs:
               echo "file_name=TestReport_${{github.run_number}}.md" >> $GITHUB_ENV
             fi
             
-    - name: Test
-      run: dotnet test --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.run_title}};"
+    - name: Test Bemby.AccountModule.Application
+      run: dotnet test ./tests/Bemby.AccountModule.Application.Tests/Bemby.AccountModule.Application.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application;Title=${{env.run_title}}_Bemby.AccountModule.Application;"
 
     # upload report as build artifact
     - name: Upload Test Report as a Build Artifact
