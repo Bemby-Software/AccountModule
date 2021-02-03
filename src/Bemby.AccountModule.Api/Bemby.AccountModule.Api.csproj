@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bemby.AccountModule.Application\Bemby.AccountModule.Application.csproj" />
+    <ProjectReference Include="..\Bemby.AccountModule.Application.Interfaces\Bemby.AccountModule.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\Bemby.AccountModule.Infrastructure\Bemby.AccountModule.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+</Project>
