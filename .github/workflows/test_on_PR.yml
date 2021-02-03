@@ -43,7 +43,15 @@ jobs:
             fi
             
     - name: Test
-      run: dotnet test --projects "*.Tests.*" --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
+      run: dotnet test "*.Tests.*" --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
+
+    # upload report as build artifact
+    - name: Upload Test Report as a Build Artifact
+      uses: actions/upload-artifact@v2
+      if: ${{always()}}
+      with:
+        name: 'Test Run'
+        path: ${{github.workspace}}/${{env.file_name}}
 
     - name: Comment Test Results on PR
       uses: machine-learning-apps/pr-comment@master
