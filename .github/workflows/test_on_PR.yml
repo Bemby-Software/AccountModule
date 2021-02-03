@@ -43,19 +43,19 @@ jobs:
             fi
             
     - name: Test Bemby.AccountModule.Api
-      run: dotnet test ./tests/Bemby.AccountModule.Api.Tests/Bemby.AccountModule.Api.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Api;Title=${{env.run_title}}_Bemby.AccountModule.Api.md;"
+      run: dotnet test ./tests/Bemby.AccountModule.Api.Tests/Bemby.AccountModule.Api.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Api.md;Title=${{env.run_title}}_Bemby.AccountModule.Api;"
 
     - name: Test Bemby.AccountModule.Application
-      run: dotnet test ./tests/Bemby.AccountModule.Application.Tests/Bemby.AccountModule.Application.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application;Title=${{env.run_title}}_Bemby.AccountModule.Application.md;"
+      run: dotnet test ./tests/Bemby.AccountModule.Application.Tests/Bemby.AccountModule.Application.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application.md;Title=${{env.run_title}}_Bemby.AccountModule.Application;"
     
     - name: Test Bemby.AccountModule.Application.Interfaces
-      run: dotnet test ./tests/Bemby.AccountModule.Application.Interfaces.Tests/Bemby.AccountModule.Application.Interfaces.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application.Interfaces;Title=${{env.run_title}}_Bemby.AccountModule.Application.Interfaces.md;"
+      run: dotnet test ./tests/Bemby.AccountModule.Application.Interfaces.Tests/Bemby.AccountModule.Application.Interfaces.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Application.Interfaces.md;Title=${{env.run_title}}_Bemby.AccountModule.Application.Interfaces;"
     
     - name: Test Bemby.AccountModule.Domain
-      run: dotnet test ./tests/Bemby.AccountModule.Domain.Tests/Bemby.AccountModule.Domain.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain;Title=${{env.run_title}}_Bemby.AccountModule.Domain.md;"
+      run: dotnet test ./tests/Bemby.AccountModule.Domain.Tests/Bemby.AccountModule.Domain.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain.md;Title=${{env.run_title}}_Bemby.AccountModule.Domain;"
 
     - name: Test Bemby.AccountModule.Infrastructure
-      run: dotnet test ./tests/Bemby.AccountModule.Infrastructure.Tests/Bemby.AccountModule.Infrastructure.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain;Title=${{env.run_title}}_Bemby.AccountModule.Infrastructure.md;"
+      run: dotnet test ./tests/Bemby.AccountModule.Infrastructure.Tests/Bemby.AccountModule.Infrastructure.Tests.csproj --no-restore --no-build --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}}_Bemby.AccountModule.Domain.md;Title=${{env.run_title}}_Bemby.AccountModule.Infrastructure;"
     
     # upload report as build artifact
     - name: Upload Bemby.AccountModule.Api Test Report as a Build Artifact
