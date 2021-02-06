@@ -4,6 +4,7 @@ using Bemby.AccountModule.Application.Interfaces.Services;
 using Bemby.AccountModule.Domain.DTOs;
 using Bemby.AccountModule.Domain.Entities;
 using MimeKit;
+using Nytte.Email;
 
 namespace Bemby.AccountModule.Application.Services
 {
@@ -11,31 +12,20 @@ namespace Bemby.AccountModule.Application.Services
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IPasswordService _passwordService;
-        private readonly IEmailService _emailService;
+        private readonly IEmailService _accountEmailService;
         private readonly IPhoneService _phoneService;
 
-        public AccountService(IAccountRepository accountRepository, IPasswordService passwordService, IEmailService emailService, IPhoneService phoneService)
+        public AccountService(IAccountRepository accountRepository, IPasswordService passwordService, IAccountEmailService accountEmailService, IPhoneService phoneService)
         {
             _accountRepository = accountRepository;
             _passwordService = passwordService;
-            _emailService = emailService;
+            _accountEmailService = accountEmailService;
             _phoneService = phoneService;
         }
         
         public async Task<AccountEntity> CreateAccountAsync(CreateAccountDto createAccountDto)
         {
-            MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Robert Bennett", "robertbennett1998@outlook.com"));
-            message.To.Add(new MailboxAddress("Robert Bennett", "robertbennett1998@gmail.com"));
-            message.Subject = "Test";
-            
-            var bodyBuilder = new BodyBuilder();
-            bodyBuilder.TextBody = "test";
-
-            message.Body = bodyBuilder.ToMessageBody();
-            await _emailService.SendEmail("smtp.office365.com", 587, "robertbennett1998@outlook.com", "incorrect_password", message);
-
-            if (!_emailService.IsValidEmailAddress(createAccountDto.Email))
+            if (!_accountEmailService.IsValidEmailAddress(createAccountDto.Email))
                 return null; //ToDo: Throw
 
             if (!_passwordService.IsStrongPassword(createAccountDto.Password))

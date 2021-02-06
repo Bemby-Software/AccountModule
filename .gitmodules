@@ -1,0 +1,3 @@
+[submodule "submodules/Nytte"]
+	path = submodules/Nytte
+	url = https://github.com/Bemby-Software/Nytte.git

@@ -42,7 +42,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             _mocker.GetMock<IPasswordService>().Setup(ps => ps.HashPassword(_password, It.IsAny<string>(), It.IsAny<int?>()))
                 .Returns(_hashedPassword);
 
-            _mocker.GetMock<IEmailService>().Setup(es => es.IsValidEmailAddress(_email))
+            _mocker.GetMock<IAccountEmailService>().Setup(es => es.IsValidEmailAddress(_email))
                 .Returns(true);
             
             _mocker.GetMock<IPhoneService>().Setup(ps => ps.IsValidPhoneNumber(_mobileNumber))
@@ -82,7 +82,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             _mocker.GetMock<IPasswordService>().Setup(ps => ps.HashPassword(_password, It.IsAny<string>(), It.IsAny<int?>()))
                 .Returns(_hashedPassword);
 
-            _mocker.GetMock<IEmailService>().Setup(es => es.IsValidEmailAddress(_email))
+            _mocker.GetMock<IAccountEmailService>().Setup(es => es.IsValidEmailAddress(_email))
                 .Returns(true);
             
             _mocker.GetMock<IPhoneService>().Setup(ps => ps.IsValidPhoneNumber(_mobileNumber))
@@ -118,7 +118,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             _mocker.GetMock<IPasswordService>().Setup(ps => ps.HashPassword(_password, It.IsAny<string>(), It.IsAny<int?>()))
                 .Returns(_hashedPassword);
 
-            _mocker.GetMock<IEmailService>().Setup(es => es.IsValidEmailAddress(_email))
+            _mocker.GetMock<IAccountEmailService>().Setup(es => es.IsValidEmailAddress(_email))
                 .Returns(true);
             
             _mocker.GetMock<IPhoneService>().Setup(ps => ps.IsValidPhoneNumber(_mobileNumber))
@@ -154,7 +154,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             _mocker.GetMock<IPasswordService>().Setup(ps => ps.HashPassword(_password, It.IsAny<string>(), It.IsAny<int?>()))
                 .Returns(_hashedPassword);
 
-            _mocker.GetMock<IEmailService>().Setup(es => es.IsValidEmailAddress(_email))
+            _mocker.GetMock<IAccountEmailService>().Setup(es => es.IsValidEmailAddress(_email))
                 .Returns(false);
             
             _mocker.GetMock<IPhoneService>().Setup(ps => ps.IsValidPhoneNumber(_mobileNumber))
@@ -164,7 +164,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             var accountEntity = await serviceUnderTest.CreateAccountAsync(new CreateAccountDto(_email,  _mobileNumber, _password));
 
             //Assert
-            _mocker.GetMock<IEmailService>()
+            _mocker.GetMock<IAccountEmailService>()
                 .Verify(es => es.IsValidEmailAddress(_email));
             
             _mocker.GetMock<IAccountRepository>()
@@ -190,7 +190,7 @@ namespace Bemby.AccountModule.Application.Tests.Services
             _mocker.GetMock<IPasswordService>().Setup(ps => ps.HashPassword(_password, It.IsAny<string>(), It.IsAny<int?>()))
                 .Returns(_hashedPassword);
 
-            _mocker.GetMock<IEmailService>().Setup(es => es.IsValidEmailAddress(_email))
+            _mocker.GetMock<IAccountEmailService>().Setup(es => es.IsValidEmailAddress(_email))
                 .Returns(true);
             
             _mocker.GetMock<IPhoneService>().Setup(ps => ps.IsValidPhoneNumber(_mobileNumber))

@@ -17,9 +17,6 @@ namespace Bemby.AccountModule.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAccount([FromBody] CreateAccountDto createAccountDto)
-        {
-            return Ok(AccountCreatedDto.FromEntity(await _accountService.CreateAccountAsync(createAccountDto)));
-        }
+        public async Task<IActionResult> CreateAccount([FromBody] CreateAccountDto createAccountDto) => Ok(AccountCreatedDto.FromEntity(await _accountService.CreateAccountAsync(createAccountDto)));
     }
 }

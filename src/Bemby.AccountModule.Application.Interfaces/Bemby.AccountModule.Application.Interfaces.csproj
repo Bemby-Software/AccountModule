@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\submodules\Nytte\src\Nytte.Email\Nytte.Email.csproj" />
     <ProjectReference Include="..\Bemby.AccountModule.Domain\Bemby.AccountModule.Domain.csproj" />
   </ItemGroup>
 
